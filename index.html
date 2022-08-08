@@ -10,12 +10,663 @@
     <title>VÍA PLAZA</title>
 </head>
 <body>
-    <div class="bg-index"></div>
 
-    <div class="medio-circulo"></div>
-    
+    <style>
+        #mobile_navBar{
+            display: block !important;
+            background-color: #111;
+            position: relative;
+            height: 4em;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        #burger_icon{
+            display: block;
+            float: right;
+            position: relative;
+            height: 32px;
+            width: 40px;
+            cursor: pointer;
+            margin-top: 1em;
+            margin-right: 0.5em;
+        }
+        #burger_icon span{
+            position: absolute;
+            display: block;
+            width: 40px;
+            height: 5px;
+            background-color: #fff;
+            border-radius: 5px;
+            transition: all 0.25s;
+            -webkit-transition: all 0.25s;
+            -moz-transition: all 0.25s;
+            -ms-transition: all 0.25s;
+            -o-transition: all 0.25s;
+        }
+        #burger_icon span:nth-child(1){
+            top: 0;
+        }
+        #burger_icon span:nth-child(2), #burger_icon span:nth-child(3){
+            top: 13px;
+        }
+        #burger_icon span:nth-child(4){
+            bottom: 0px;
+        }
+        #burger_icon.open span:nth-child(1){
+            opacity: 0;
+        }
+        #burger_icon.open span:nth-child(2){
+            transform: rotate(45deg);
+        }
+        #burger_icon.open span:nth-child(3){
+            transform: rotate(-45deg);
+        }
+        #burger_icon.open span:nth-child(4){
+            opacity: 0;
+        }
+        nav{
+            margin-top: 4em; 
+            position: fixed;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            width: 100%;
+            transition: height 1s;
+            background: rgb(46, 141, 97); 
+            background: rgba(46, 141, 97, 1);
+            text-align: center;
+        }
+        nav .ul{
+            width: 100%;
+            padding-bottom: 80px;
+            overflow: scroll;
+            display: block;
+            box-sizing: border-box;
+        }
+        #menu_list{
+            display: none;
+            width: 100%;
+            height: 0; 
+            transition: all 1s ease;
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            -ms-transition: all 1s ease;
+        }
+        #menu_list.show{
+            display: block;
+            width: 100%;
+            padding: 0;
+            height: auto;
+        }
+        #open_menu.hide{
+            display: none;
+        }
+        #menu-list:nth-child(1){
+            border-bottom: dotted 1px #fff;
+            width: 55%;
+        }
+        #menu-list:nth-child(2){
+            border-bottom: dotted 1px #fff;
+            width: 55%;
+        }
+        nav.show{
+            width: 100%;
+            height: 100%;
+            display: block;
+            overflow: scroll;
+        }
+        .onboarding-card-web {
+            position: absolute;
+            user-select: none;
+            visibility: hidden;
+        }
+        .visible-card-web {
+            opacity: 1;
+            visibility: visible;
+            animation-duration: 2s;
+            animation-name: animTexto;
+        }
+        .submenu-terrenos{
+            padding-top: 10rem;
+        }
+    </style>
 
-
+    <div id="mobile_navBar">
+        <div id="burger_icon">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+    </div>
+      
+      <nav>
+        <ul class="ul">
+            <!--VÍA PLAZA-->
+            <div class="container-fluid bg-menu-verde-os py-5 onboarding-card-web visible-card-web" id="menu_inicio_web">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <img src="img/image-menu.png" alt="VIA PLAZA" class="img-fluid"/>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-7">
+                            <div class="text-center">
+                                <img src="img/logo-verde-claro.png" alt="VIA PLAZA" class="img-fluid logo-submenu-web"/>
+                            </div>
+                            <div class="row pt-3">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-7 text-end">
+                                    <a href="#" class="a_none_style text-white onboarding-card-web__arrow" data-target="#menu_inicio_web">
+                                        <h3 class="extrabold h2 pb-2">Vía Plaza</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white onboarding-card-web__arrow" data-target="#menu_plazas_web">
+                                        <h3 class="extrabold h2 pb-2">Plazas comerciales</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white onboarding-card-web__arrow" data-target="#menu_locales_web">
+                                        <h3 class="extrabold h2 pb-2">Locales</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white onboarding-card-web__arrow" data-target="#menu_proy_web">
+                                        <h3 class="extrabold h2 pb-2">Próximos proyectos</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white onboarding-card-web__arrow" data-target="#menu_inmuebles_web">
+                                        <h3 class="extrabold h2 pb-2">Inmuebles / Terrenos</h3>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-1">
+                                    <div class="">
+                                        <img src="img/indicador-verde-claro.png" alt="VIA PLAZA" class="img-fluid"/>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <a href="#" class="a_none_style text-white">
+                                        <h2 class="light pb-2">Inicio</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white">
+                                        <h2 class="light pb-2">Qué hacemos</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white">
+                                        <h2 class="light pb-2">Presencia</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white">
+                                        <h2 class="light pb-2">Marcas</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white">
+                                        <h2 class="light pb-2">Contacto</h2>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
+                    </div>
+                    <div class="row pt-5">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-10">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-2">
+                                    <a href="#" class="a_none_style text-white">
+                                        <h6 class="light">
+                                            <img src="img/phone-verde-claro.png" alt="VIA PLAZA" class="img-fluid cel-sub-menu"/>
+                                            55 52 78 56 15
+                                        </h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+                                    <a href="#" class="a_none_style text-white">
+                                        <h6 class="light">
+                                            <img src="img/mail-verde-claro.png" alt="VIA PLAZA" class="img-fluid mail-sub-menu"/>
+                                            contacto@viaplaza.mx
+                                        </h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <a href="#" class="a_none_style text-white">
+                                        <h6 class="light">
+                                            <img src="img/ubi-verde-claro.png" alt="VIA PLAZA" class="img-fluid ubi-sub-menu"/>
+                                            Insurgentes Sur 553, Col. Escandón, Miguel Hidalgo Cp. 11800 CDMX
+                                        </h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/fb-verde-claro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/ig-verde-claro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/tw-verde-claro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/tik-tok-verde-claro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
+                    </div>
+                </div>
+                
+            </div>
+            <!--PLAZAS COMERCIALES-->
+            <div class="container-fluid bg-menu-verde-cl py-5 onboarding-card-web"  id="menu_plazas_web">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <img src="img/image-menu.png" alt="VIA PLAZA" class="img-fluid"/>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-7">
+                            <div class="text-center">
+                                <img src="img/logo-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid logo-submenu-web"/>
+                            </div>
+                            <div class="row pt-3">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-7 text-end">
+                                    <a href="#" class="a_none_style text-black onboarding-card-web__arrow" data-target="#menu_inicio_web">
+                                        <h3 class="extrabold h2 pb-2">Vía Plaza</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black onboarding-card-web__arrow" data-target="#menu_plazas_web">
+                                        <h3 class="extrabold h2 pb-2">Plazas comerciales</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black onboarding-card-web__arrow" data-target="#menu_locales_web">
+                                        <h3 class="extrabold h2 pb-2">Locales</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black onboarding-card-web__arrow" data-target="#menu_proy_web">
+                                        <h3 class="extrabold h2 pb-2">Próximos proyectos</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black onboarding-card-web__arrow" data-target="#menu_inmuebles_web">
+                                        <h3 class="extrabold h2 pb-2">Inmuebles / Terrenos</h3>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-1 pt-2">
+                                    <div class="pt-5">
+                                        <img src="img/indicador-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid"/>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <a href="#" class="a_none_style text-black">
+                                        <h2 class="light pb-2">Plaza Ermita Iztapalapa</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black">
+                                        <h2 class="light pb-2">Vía Plaza Barrancos</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black">
+                                        <h2 class="light pb-2">Vía Plaza Moctezuma</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black">
+                                        <h2 class="light pb-2">Vía Plaza Parras</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black">
+                                        <h2 class="light pb-2">Vía Plaza Tuxtla Chico</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black">
+                                        <h2 class="light pb-2">Vía Plaza Vizcaino</h2>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
+                    </div>
+                    <div class="row pt-5">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-10">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-2">
+                                    <a href="#" class="a_none_style text-black">
+                                        <h6 class="light">
+                                            <img src="img/phone-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid cel-sub-menu"/>
+                                            55 52 78 56 15
+                                        </h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+                                    <a href="#" class="a_none_style text-black">
+                                        <h6 class="light">
+                                            <img src="img/mail-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid mail-sub-menu"/>
+                                            contacto@viaplaza.mx
+                                        </h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <a href="#" class="a_none_style text-black">
+                                        <h6 class="light">
+                                            <img src="img/ubi-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid ubi-sub-menu"/>
+                                            Insurgentes Sur 553, Col. Escandón, Miguel Hidalgo Cp. 11800 CDMX
+                                        </h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/fb-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/ig-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/tw-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/tik-tok-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
+                    </div>
+                </div> 
+            </div>
+            <!--LOCALES-->
+            <div class="container-fluid bg-menu-verde-os py-5 onboarding-card-web" id="menu_locales_web">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <img src="img/image-menu.png" alt="VIA PLAZA" class="img-fluid"/>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-7">
+                            <div class="text-center">
+                                <img src="img/logo-verde-claro.png" alt="VIA PLAZA" class="img-fluid logo-submenu-web"/>
+                            </div>
+                            <div class="row pt-3">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-7 text-end">
+                                    <a href="#" class="a_none_style text-white onboarding-card-web__arrow" data-target="#menu_inicio_web">
+                                        <h3 class="extrabold h2 pb-2">Vía Plaza</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white onboarding-card-web__arrow" data-target="#menu_plazas_web">
+                                        <h3 class="extrabold h2 pb-2">Plazas comerciales</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white onboarding-card-web__arrow" data-target="#menu_locales_web">
+                                        <h3 class="extrabold h2 pb-2">Locales</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white onboarding-card-web__arrow" data-target="#menu_proy_web">
+                                        <h3 class="extrabold h2 pb-2">Próximos proyectos</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white onboarding-card-web__arrow" data-target="#menu_inmuebles_web">
+                                        <h3 class="extrabold h2 pb-2">Inmuebles / Terrenos</h3>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-1 pt-5">
+                                    <div class="pt-5">
+                                        <img src="img/indicador-verde-claro.png" alt="VIA PLAZA" class="img-fluid pt-3"/>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <a href="#" class="a_none_style text-white">
+                                        <h2 class="light pb-2">Inicio</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white">
+                                        <h2 class="light pb-2">Qué hacemos</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white">
+                                        <h2 class="light pb-2">Presencia</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white">
+                                        <h2 class="light pb-2">Marcas</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white">
+                                        <h2 class="light pb-2">Contacto</h2>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
+                    </div>
+                    <div class="row pt-5">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-10">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-2">
+                                    <a href="#" class="a_none_style text-white">
+                                        <h6 class="light">
+                                            <img src="img/phone-verde-claro.png" alt="VIA PLAZA" class="img-fluid cel-sub-menu"/>
+                                            55 52 78 56 15
+                                        </h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+                                    <a href="#" class="a_none_style text-white">
+                                        <h6 class="light">
+                                            <img src="img/mail-verde-claro.png" alt="VIA PLAZA" class="img-fluid mail-sub-menu"/>
+                                            contacto@viaplaza.mx
+                                        </h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <a href="#" class="a_none_style text-white">
+                                        <h6 class="light">
+                                            <img src="img/ubi-verde-claro.png" alt="VIA PLAZA" class="img-fluid ubi-sub-menu"/>
+                                            Insurgentes Sur 553, Col. Escandón, Miguel Hidalgo Cp. 11800 CDMX
+                                        </h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/fb-verde-claro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/ig-verde-claro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/tw-verde-claro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/tik-tok-verde-claro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
+                    </div>
+                </div>
+                
+            </div>
+            <!--PRÓXIMOS PROYECTOS-->
+            <div class="container-fluid bg-menu-verde-cl py-5 onboarding-card-web" id="menu_proy_web">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <img src="img/image-menu.png" alt="VIA PLAZA" class="img-fluid"/>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-7">
+                            <div class="text-center">
+                                <img src="img/logo-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid logo-submenu-web"/>
+                            </div>
+                            <div class="row pt-3">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-7 text-end">
+                                    <a href="#" class="a_none_style text-black onboarding-card-web__arrow" data-target="#menu_inicio_web">
+                                        <h3 class="extrabold h2 pb-2">Vía Plaza</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black onboarding-card-web__arrow" data-target="#menu_plazas_web">
+                                        <h3 class="extrabold h2 pb-2">Plazas comerciales</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black onboarding-card-web__arrow" data-target="#menu_locales_web">
+                                        <h3 class="extrabold h2 pb-2">Locales</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black onboarding-card-web__arrow" data-target="#menu_proy_web">
+                                        <h3 class="extrabold h2 pb-2">Próximos proyectos</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black onboarding-card-web__arrow" data-target="#menu_inmuebles_web">
+                                        <h3 class="extrabold h2 pb-2">Inmuebles / Terrenos</h3>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-1">
+                                    <div class="indicador-prox">
+                                        <img src="img/indicador-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid"/>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <a href="#" class="a_none_style text-black">
+                                        <h2 class="light pb-2">Vía Plaza Francisco I Madero</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black">
+                                        <h2 class="light pb-2">Vía Plaza Pérez Treviño</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black">
+                                        <h2 class="light pb-2">Vía Plaza Beisborama</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black">
+                                        <h2 class="light pb-2">Vía Plaza Aeropuerto</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black">
+                                        <h2 class="light pb-2">Vía Plaza Ciudad Hidalgo</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-black">
+                                        <h2 class="light pb-2">Vía Plaza Madero</h2>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
+                    </div>
+                    <div class="row pt-5">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-10">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-2">
+                                    <a href="#" class="a_none_style text-black">
+                                        <h6 class="light">
+                                            <img src="img/phone-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid cel-sub-menu"/>
+                                            55 52 78 56 15
+                                        </h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+                                    <a href="#" class="a_none_style text-black">
+                                        <h6 class="light">
+                                            <img src="img/mail-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid mail-sub-menu"/>
+                                            contacto@viaplaza.mx
+                                        </h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <a href="#" class="a_none_style text-black">
+                                        <h6 class="light">
+                                            <img src="img/ubi-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid ubi-sub-menu"/>
+                                            Insurgentes Sur 553, Col. Escandón, Miguel Hidalgo Cp. 11800 CDMX
+                                        </h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/fb-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/ig-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/tw-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/tik-tok-verde-oscuro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
+                    </div>
+                </div>
+                
+            </div>
+            <!--INMUEBLES / TERRENOS-->
+            <div class="container-fluid bg-menu-verde-os py-5 onboarding-card-web" id="menu_inmuebles_web">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <img src="img/image-menu.png" alt="VIA PLAZA" class="img-fluid"/>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-7">
+                            <div class="text-center">
+                                <img src="img/logo-verde-claro.png" alt="VIA PLAZA" class="img-fluid logo-submenu-web"/>
+                            </div>
+                            <div class="row pt-3">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-7 text-end">
+                                    <a href="#" class="a_none_style text-white onboarding-card-web__arrow" data-target="#menu_inicio_web" >
+                                        <h3 class="extrabold h2 pb-2">Vía Plaza</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white onboarding-card-web__arrow" data-target="#menu_plazas_web">
+                                        <h3 class="extrabold h2 pb-2">Plazas comerciales</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white onboarding-card-web__arrow" data-target="#menu_locales_web">
+                                        <h3 class="extrabold h2 pb-2">Locales</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white onboarding-card-web__arrow" data-target="#menu_proy_web">
+                                        <h3 class="extrabold h2 pb-2">Próximos proyectos</h3>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white onboarding-card-web__arrow" data-target="#menu_inmuebles_web"> 
+                                        <h3 class="extrabold h2 pb-2">Inmuebles / Terrenos</h3>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-1">
+                                    <div class="indicador-terrenos">
+                                        <img src="img/indicador-verde-claro.png" alt="VIA PLAZA" class="img-fluid"/>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 submenu-terrenos">
+                                    <a href="#" class="a_none_style text-white">
+                                        <h2 class="light pb-2">Terrenos</h2>
+                                    </a>
+                                    <a href="#" class="a_none_style text-white">
+                                        <h2 class="light pb-2">Pad's</h2>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
+                    </div>
+                    <div class="row pt-5">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-10">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-2">
+                                    <a href="#" class="a_none_style text-white">
+                                        <h6 class="light">
+                                            <img src="img/phone-verde-claro.png" alt="VIA PLAZA" class="img-fluid cel-sub-menu"/>
+                                            55 52 78 56 15
+                                        </h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+                                    <a href="#" class="a_none_style text-white">
+                                        <h6 class="light">
+                                            <img src="img/mail-verde-claro.png" alt="VIA PLAZA" class="img-fluid mail-sub-menu"/>
+                                            contacto@viaplaza.mx
+                                        </h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <a href="#" class="a_none_style text-white">
+                                        <h6 class="light">
+                                            <img src="img/ubi-verde-claro.png" alt="VIA PLAZA" class="img-fluid ubi-sub-menu"/>
+                                            Insurgentes Sur 553, Col. Escandón, Miguel Hidalgo Cp. 11800 CDMX
+                                        </h6>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/fb-verde-claro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/ig-verde-claro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/tw-verde-claro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                    <a href="#" class="a_none_style">
+                                        <img src="img/tik-tok-verde-claro.png" alt="VIA PLAZA" class="img-fluid ms-3"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </ul>
+      </nav>
+      
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
@@ -24,5 +675,30 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>   
     <script src='https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/3.0.8/jquery.elevatezoom.min.js'></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function cambio_bg_menu_web(){
+            document.getElementById()
+        }
+        document.querySelectorAll('.onboarding-card-web__arrow').forEach(function (arrow) {
+            var target = document.querySelector(arrow.dataset.target);
+            arrow.addEventListener('click', function (e) {
+            document.querySelector('.visible-card-web').classList.remove('visible-card-web');
+            target.classList.add('visible-card-web');
+            }, false);
+        });
+        $(document).ready(function() {
+        $("#burger_icon, .auto_close").click(function() {
+
+            $("body").toggleClass("no_scroll");
+            $("nav").toggleClass("show");
+            $("#burger_icon").toggleClass("open");
+
+            $("#open_menu").click(function() {
+            $("#menu_list").toggleClass("show");
+            $("#open_menu").toggleClass("hide");
+            });
+        });
+        });
+    </script>
 </body>
 </html>
